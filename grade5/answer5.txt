@@ -1,0 +1,2 @@
+Count of digits: 19 
+Count of letters: 118
