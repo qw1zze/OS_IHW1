@@ -74,7 +74,7 @@ ssize_t write_file(char* name, char* buffer, int size) {
     return count_write;
 }
 
-void write_process(int second_pipe[], char* buffer, char* output_name) {
+void write_process(char second_pipe[], char* buffer, char* output_name) {
     int second_fd;
     if((second_fd = open(second_pipe, O_RDONLY)) < 0){
         printf("Can\'t open FIFO for reading\n");
@@ -101,7 +101,7 @@ void write_process(int second_pipe[], char* buffer, char* output_name) {
     }
 }
 
-void solve_process(int first_pipe[], int second_pipe[], char* buffer) {
+void solve_process(char first_pipe[], char second_pipe[], char* buffer) {
 
     int first_fd;
     if((first_fd = open(first_pipe, O_RDONLY)) < 0){
@@ -142,7 +142,7 @@ void solve_process(int first_pipe[], int second_pipe[], char* buffer) {
     }
 }
 
-void read_process(int first_pipe[], char* buffer, char* input_name) {
+void read_process(char first_pipe[], char* buffer, char* input_name) {
     ssize_t read_file = read_from_file(input_name, buffer, 5000);
 
     int first_fd;

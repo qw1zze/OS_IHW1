@@ -32,7 +32,7 @@ ssize_t get_count(char* str, char* buffer, size_t size) {
     return ind;
 }
 
-void solve_process(int first_pipe[], int second_pipe[], char* buffer) {
+void solve_process(char first_pipe[], char second_pipe[], char* buffer) {
 
     int first_fd;
     if((first_fd = open(first_pipe, O_RDONLY)) < 0){
